@@ -1,0 +1,21 @@
+ListNode* oddEvenList(ListNode* head) {
+        if(head==NULL || head->next==NULL || head->next->next==NULL)
+        return head;
+        	ListNode* ans = head;
+	ListNode* temp = NULL;
+	ListNode* head2 = head;
+	temp = head;
+	head = head->next;
+	ListNode* even = head;
+	ListNode* st = even;
+	while (head!=NULL && head ->next != NULL) {
+		even = head;
+		head = head->next;
+		temp->next = head;
+		temp = head;
+		head = head->next;
+		even->next = head;
+	}
+	temp->next = st;
+	return ans;
+    }
